@@ -10,6 +10,7 @@ function App() {
 	const [finalScore, setFinalScore] = useState(0);
 	const [highScore, setHighScore] = useState(() => load('highScore', 0));
 	const [theme, setTheme] = useState('planets');
+	const [level, setLevel] = useState('easy');
 
 	useEffect(() => {
 		save('highScore', highScore);
@@ -20,8 +21,9 @@ function App() {
 			<Header />
 			{gameState === 'SETUP' && (
 				<SetupScreen
-					onSelectTheme={(selectedTheme) => {
-						setTheme(selectedTheme);
+					onStartGame={(themeChoice, levelChoice) => {
+						setTheme(themeChoice);
+						setLevel(levelChoice);
 						setGameState('PLAYING');
 					}}
 				/>
@@ -29,6 +31,7 @@ function App() {
 			{gameState === 'PLAYING' && (
 				<PlayingScreen
 					theme={theme}
+					level={level}
 					onGameOver={(score) => {
 						setFinalScore(score);
 						if (score > highScore) {

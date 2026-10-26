@@ -1,9 +1,23 @@
 import { getCardImageUrl } from '../utils/dicebear.js';
 
-const names = ['Alpha', 'Beta', 'Gamma'];
+const names = [
+	'One',
+	'Two',
+	'Three',
+	'Four',
+	'Five',
+	'Six',
+	'Seven',
+	'Eight',
+	'Nine',
+];
 
-function deckGenerator(theme) {
-	return names.map((nameItem) => ({
+const levelCounts = { easy: 3, medium: 6, hard: 9 };
+
+function deckGenerator(theme, level) {
+	const count = levelCounts[level] || 3;
+
+	return names.slice(0, count).map((nameItem) => ({
 		name: nameItem,
 		img: getCardImageUrl(theme, nameItem),
 	}));

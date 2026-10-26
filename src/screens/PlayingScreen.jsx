@@ -3,8 +3,8 @@ import deckGenerator from '../constants/gameConfig';
 import { shuffle } from '../utils/shuffle';
 import { useState } from 'react';
 
-function PlayingScreen({ theme, onGameOver }) {
-	const [cards, setCards] = useState(() => deckGenerator(theme));
+function PlayingScreen({ theme, level, onGameOver }) {
+	const [cards, setCards] = useState(() => deckGenerator(theme, level));
 	const [cardsMemory, setCardsMemory] = useState([]);
 
 	const handleCardClick = (clickedCard) => {
