@@ -1,7 +1,9 @@
+import Header from './components/Header';
+
 function App() {
 	return (
-		<div>
-			<h1>Memory Card Game</h1>
+		<div className="app-container">
+			<Header />
 		</div>
 	);
 }
