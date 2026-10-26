@@ -1,4 +1,5 @@
 import Card from './Card';
+import '../styles/cards.css';
 
 function CardsSection({ cards }) {
 	return (
