@@ -19,6 +19,11 @@
 	margin-bottom: 1rem;
 }
 
+.score-section .score {
+	border: none;
+	box-shadow: none;
+}
+
 .game-over .high-score {
 	color: var(--accent);
 	font-weight: 700;

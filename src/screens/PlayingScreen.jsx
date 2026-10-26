@@ -30,7 +30,7 @@ function PlayingScreen({ theme, level, onGameOver, onWin }) {
 	};
 
 	return (
-		<div>
+		<div className="playing-screen">
 			<h2 className="score">Score: {cardsMemory.length}</h2>
 			<CardsSection cards={cards} onCardClick={handleCardClick} />
 		</div>

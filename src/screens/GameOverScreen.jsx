@@ -5,7 +5,7 @@ function GameOverScreen({ score, collectedCards, onRestart, highScore }) {
 		<div className="game-over">
 			<h2>Oops!</h2>
 			<div className="score-section">
-				<p>You scored: {score}</p>
+				<p className="score">You scored: {score}</p>
 				<p className="high-score">High Score: {highScore}</p>
 			</div>
 

@@ -1,10 +1,11 @@
 :root {
-	--text: #6b6375;
-	--text-h: #08060d;
-	--bg: #fff;
-	--border: #e5e4e7;
-	--accent: #aa3bff;
-	--shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px;
+	--text: #4a4063;
+	--text-h: #360568;
+	--bg: hsl(0, 0%, 100%);
+	--border: #d6c8f7;
+	--accent: #8b5cf6;
+	--accent-hover: #7c3aed;
+	--shadow: hsla(0, 0%, 0%, 0.1) 0 10px 15px -3px;
 	--sans: system-ui, 'Segoe UI', Roboto, sans-serif;
 
 	font: 16px/150% var(--sans);
@@ -58,5 +59,4 @@ h1,
 	text-align: center;
 	letter-spacing: -0.5px;
 	margin-bottom: clamp(1rem, 2vw, 1.5rem);
-	text-shadow: 3px 3px 0px var(--border);
 }
