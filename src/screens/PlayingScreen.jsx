@@ -5,13 +5,18 @@ import { useState } from 'react';
 function PlayingScreen() {
 	const [cards, setCards] = useState(() => deckGenerator('planets'));
 	const [cardsMemory, setCardsMemory] = useState([]);
+	const score = cardsMemory.length;
 
 	const handleCardClick = (clickedCard) => {
-		setCardsMemory((prevMemory) => {
-			const updated = [...prevMemory, clickedCard];
+		const isIncluded = cardsMemory.some(
+			(card) => card.name === clickedCard.name
+		);
 
-			return updated;
-		});
+		if (isIncluded) {
+			return;
+		}
+
+		setCardsMemory((prevMemory) => [...prevMemory, clickedCard]);
 	};
 
 	return (
