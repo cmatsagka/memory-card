@@ -1,6 +1,6 @@
 function Card({ img, name }) {
 	return (
-		<div>
+		<div className="card">
 			<img src={img} alt="name" />
 			<p>{name}</p>
 		</div>

@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import PlayingScreen from './screens/PlayingScreen';
+import './styles/cards.css';
 
 function App() {
 	const mockCards = [
