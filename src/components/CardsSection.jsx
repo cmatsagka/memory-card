@@ -10,7 +10,7 @@ function CardsSection({ cards, onCardClick }) {
 						key={card.name}
 						img={card.img}
 						name={card.name}
-						onClick={() => onCardClick(card)}
+						onCardClick={() => onCardClick(card)}
 					/>
 				);
 			})}
