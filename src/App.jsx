@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { save, load } from './utils/storage';
 import Header from './components/Header';
 import PlayingScreen from './screens/PlayingScreen';
 import GameOverScreen from './screens/GameOverScreen';
@@ -6,6 +7,11 @@ import GameOverScreen from './screens/GameOverScreen';
 function App() {
 	const [gameState, setGameState] = useState('PLAYING');
 	const [finalScore, setFinalScore] = useState(0);
+	const [highScore, setHighScore] = useState(() => load('highScore', 0));
+
+	useEffect(() => {
+		save('highScore', highScore);
+	}, [highScore]);
 
 	return (
 		<div className="app-container">
@@ -14,6 +20,9 @@ function App() {
 				<PlayingScreen
 					onGameOver={(score) => {
 						setFinalScore(score);
+						if (score > highScore) {
+							setHighScore(score);
+						}
 						setGameState('GAME_OVER');
 					}}
 				/>
@@ -22,6 +31,7 @@ function App() {
 				<GameOverScreen
 					score={finalScore}
 					onRestart={() => setGameState('PLAYING')}
+					highScore={highScore}
 				/>
 			)}
 		</div>
