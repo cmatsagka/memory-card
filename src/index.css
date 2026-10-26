@@ -20,8 +20,12 @@
 	padding: 0;
 }
 
+html,
 body {
 	min-height: 100vh;
+	font: 16px/150% var(--sans);
+	color: var(--text);
+	background: var(--bg);
 }
 
 img {
