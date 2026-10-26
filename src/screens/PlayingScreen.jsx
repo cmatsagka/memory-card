@@ -1,6 +1,9 @@
 import CardsSection from '../components/CardsSection';
+import deckGenerator from '../constants/gameConfig';
 
-function PlayingScreen({ cards }) {
+function PlayingScreen() {
+	const cards = deckGenerator('planets');
+
 	return (
 		<div>
 			<h2>Memory Round</h2>
