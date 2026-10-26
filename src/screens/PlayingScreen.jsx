@@ -3,10 +3,9 @@ import deckGenerator from '../constants/gameConfig';
 import { shuffle } from '../utils/shuffle';
 import { useState } from 'react';
 
-function PlayingScreen() {
+function PlayingScreen({ onGameOver }) {
 	const [cards, setCards] = useState(() => deckGenerator('planets'));
 	const [cardsMemory, setCardsMemory] = useState([]);
-	const score = cardsMemory.length;
 
 	const handleCardClick = (clickedCard) => {
 		const isIncluded = cardsMemory.some(
@@ -14,17 +13,17 @@ function PlayingScreen() {
 		);
 
 		if (isIncluded) {
+			onGameOver(cardsMemory.length);
 			return;
 		}
 
 		setCardsMemory((prevMemory) => [...prevMemory, clickedCard]);
-
 		setCards(shuffle(cards));
 	};
 
 	return (
 		<div>
-			<h2>Memory Round</h2>
+			<h2 className="score">Score: {cardsMemory.length}</h2>
 			<CardsSection cards={cards} onCardClick={handleCardClick} />
 		</div>
 	);
