@@ -1,5 +1,6 @@
 import CardsSection from '../components/CardsSection';
 import deckGenerator from '../constants/gameConfig';
+import { shuffle } from '../utils/shuffle';
 import { useState } from 'react';
 
 function PlayingScreen() {
@@ -17,6 +18,8 @@ function PlayingScreen() {
 		}
 
 		setCardsMemory((prevMemory) => [...prevMemory, clickedCard]);
+
+		setCards(shuffle(cards));
 	};
 
 	return (
