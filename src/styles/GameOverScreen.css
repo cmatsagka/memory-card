@@ -14,8 +14,9 @@
 	font-weight: 800;
 }
 
-.score-section {
+.score-section p {
 	font-size: clamp(1rem, 2vw, 1.25rem);
+	margin-bottom: 1rem;
 }
 
 .game-over .high-score {

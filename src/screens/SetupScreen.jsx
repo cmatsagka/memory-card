@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../styles/SetupScreen.css';
 
 function SetupScreen({ onStartGame }) {
 	const [selectedTheme, setSelectedTheme] = useState('planets');
