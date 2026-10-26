@@ -2,6 +2,7 @@ import CardsSection from '../components/CardsSection';
 import deckGenerator from '../constants/gameConfig';
 import { shuffle } from '../utils/shuffle';
 import { useState } from 'react';
+import '../styles/PlayingScreen.css';
 
 function PlayingScreen({ theme, level, onGameOver, onWin }) {
 	const [cards, setCards] = useState(() => deckGenerator(theme, level));
