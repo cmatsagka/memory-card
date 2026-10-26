@@ -3,7 +3,7 @@ import deckGenerator from '../constants/gameConfig';
 import { shuffle } from '../utils/shuffle';
 import { useState } from 'react';
 
-function PlayingScreen({ theme, level, onGameOver }) {
+function PlayingScreen({ theme, level, onGameOver, onWin }) {
 	const [cards, setCards] = useState(() => deckGenerator(theme, level));
 	const [cardsMemory, setCardsMemory] = useState([]);
 
@@ -17,7 +17,14 @@ function PlayingScreen({ theme, level, onGameOver }) {
 			return;
 		}
 
-		setCardsMemory((prevMemory) => [...prevMemory, clickedCard]);
+		const newMemory = [...cardsMemory, clickedCard];
+
+		if (newMemory.length === cards.length) {
+			onWin(newMemory);
+			return;
+		}
+
+		setCardsMemory(newMemory);
 		setCards(shuffle(cards));
 	};
 
