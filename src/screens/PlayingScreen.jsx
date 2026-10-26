@@ -13,7 +13,7 @@ function PlayingScreen({ theme, level, onGameOver }) {
 		);
 
 		if (isIncluded) {
-			onGameOver(cardsMemory.length);
+			onGameOver(cardsMemory);
 			return;
 		}
 

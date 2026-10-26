@@ -11,6 +11,7 @@ function App() {
 	const [highScore, setHighScore] = useState(() => load('highScore', 0));
 	const [theme, setTheme] = useState('planets');
 	const [level, setLevel] = useState('easy');
+	const [collectedCards, setCollectedCards] = useState([]);
 
 	useEffect(() => {
 		save('highScore', highScore);
@@ -32,10 +33,11 @@ function App() {
 				<PlayingScreen
 					theme={theme}
 					level={level}
-					onGameOver={(score) => {
-						setFinalScore(score);
-						if (score > highScore) {
-							setHighScore(score);
+					onGameOver={(collectedCards) => {
+						setCollectedCards(collectedCards);
+						setFinalScore(collectedCards.length);
+						if (collectedCards.length > highScore) {
+							setHighScore(collectedCards.length);
 						}
 						setGameState('GAME_OVER');
 					}}
@@ -44,6 +46,7 @@ function App() {
 			{gameState === 'GAME_OVER' && (
 				<GameOverScreen
 					score={finalScore}
+					collectedCards={collectedCards}
 					onRestart={() => setGameState('SETUP')}
 					highScore={highScore}
 				/>
