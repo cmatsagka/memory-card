@@ -9,7 +9,7 @@
 
 .game-over h2 {
 	font-size: clamp(2rem, 5vw, 3rem);
-	color: var(--text-h);
+	color: var(--accent);
 	margin-bottom: 1.6rem;
 	font-weight: 800;
 }
@@ -17,11 +17,6 @@
 .score-section p {
 	font-size: clamp(1rem, 2vw, 1.25rem);
 	margin-bottom: 1rem;
-}
-
-.score-section .score {
-	border: none;
-	box-shadow: none;
 }
 
 .game-over .high-score {

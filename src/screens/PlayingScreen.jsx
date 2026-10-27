@@ -1,12 +1,18 @@
 import CardsSection from '../components/CardsSection';
 import deckGenerator from '../constants/gameConfig';
 import { shuffle } from '../utils/shuffle';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../styles/PlayingScreen.css';
 
-function PlayingScreen({ theme, level, onGameOver, onWin }) {
+function PlayingScreen({ theme, level, onGameOver, onWin, onScoreUpdate }) {
 	const [cards, setCards] = useState(() => deckGenerator(theme, level));
 	const [cardsMemory, setCardsMemory] = useState([]);
+
+	useEffect(() => {
+		if (onScoreUpdate) {
+			onScoreUpdate(cardsMemory.length);
+		}
+	}, [cardsMemory, onScoreUpdate]);
 
 	const handleCardClick = (clickedCard) => {
 		const isIncluded = cardsMemory.some(
@@ -31,7 +37,6 @@ function PlayingScreen({ theme, level, onGameOver, onWin }) {
 
 	return (
 		<div className="playing-screen">
-			<h2 className="score">Score: {cardsMemory.length}</h2>
 			<CardsSection cards={cards} onCardClick={handleCardClick} />
 		</div>
 	);

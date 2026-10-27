@@ -1,0 +1,42 @@
+.header {
+	width: 100%;
+}
+
+.centered-header {
+	text-align: center;
+	margin-top: clamp(1rem, 4vh, 3rem);
+	margin-bottom: 2rem;
+}
+
+.centered-header h1 {
+	font-size: clamp(2.2rem, 5vw, 3.2rem);
+	font-weight: 900;
+	color: var(--text-h);
+	letter-spacing: -0.5px;
+	text-shadow: var(--shadow);
+}
+
+.playing-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5rem 0;
+	margin-bottom: 1.5rem;
+}
+
+.game-mini-title {
+	font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+	font-weight: 800;
+	color: var(--text-h);
+}
+
+.score-badge {
+	font-size: clamp(1rem, 2vw, 1.2rem);
+	font-weight: 800;
+	color: var(--text-h);
+	background: hsl(0, 0, 100%);
+	border: 3px solid var(--border);
+	border-radius: 50px;
+	padding: 0.4rem 1.2rem;
+	box-shadow: var(--shadow);
+}
