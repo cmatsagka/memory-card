@@ -4,6 +4,8 @@ A child-friendly memory card game built with React, featuring a chunky "sticker"
 
 ![Memory Card Game Preview Image](src/assets/game_preview.png)
 
+[🌐 View Live Demo](https://memory-card-bay-nu.vercel.app/)
+
 ---
 
 ## 🎮 Game Features & Aesthetics
@@ -28,7 +30,7 @@ A child-friendly memory card game built with React, featuring a chunky "sticker"
 ### 1. Clone the repository:
 
 ```Bash
-git clone [https://github.com/your-username/memory-card-game.git](https://github.com/your-username/memory-card-game.git)
+git clone git@github.com:cmatsagka/memory-card-game.git
 ```
 
 ### 2. Open project directory:
