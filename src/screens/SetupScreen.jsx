@@ -2,65 +2,59 @@ import { useState } from 'react';
 import deckGenerator from '../constants/gameConfig';
 import '../styles/SetupScreen.css';
 
+const THEME_PREVIEWS = {
+	clay: deckGenerator('clay', 'easy')[0],
+	planets: deckGenerator('planets', 'easy')[0],
+};
+
 function SetupScreen({ onStartGame }) {
 	const [selectedTheme, setSelectedTheme] = useState('planets');
 	const [selectedLevel, setSelectedLevel] = useState('easy');
 
-	const claySample = deckGenerator('clay', 'easy')[0];
-	const planetsSample = deckGenerator('planets', 'easy')[0];
+	const themes = [
+		{ id: 'clay', alt: 'Clay theme preview' },
+		{ id: 'planets', alt: 'Planet theme preview' },
+	];
+
+	const levels = ['easy', 'medium', 'hard'];
 
 	return (
 		<div className="setup-screen">
 			<div className="theme-setup">
 				<h2>Choose your theme!</h2>
 				<div className="theme-btn-section">
-					<button
-						className={`theme-card-btn ${selectedTheme === 'clay' ? 'active' : ''}`}
-						onClick={() => setSelectedTheme('clay')}
-					>
-						{claySample && (
-							<img
-								src={claySample.img}
-								alt="Clay theme preview"
-								className="theme-preview-img"
-							/>
-						)}
-					</button>
-					<button
-						className={`theme-card-btn ${selectedTheme === 'planets' ? 'active' : ''}`}
-						onClick={() => setSelectedTheme('planets')}
-					>
-						{planetsSample && (
-							<img
-								src={planetsSample.img}
-								alt="Planet theme preview"
-								className="theme-preview-img"
-							/>
-						)}
-					</button>
+					{themes.map(({ id, alt }) => {
+						const sampleCard = THEME_PREVIEWS[id];
+						return (
+							<button
+								key={id}
+								className={`theme-card-btn ${selectedTheme === id ? 'active' : ''}`}
+								onClick={() => setSelectedTheme(id)}
+							>
+								{sampleCard && (
+									<img
+										src={sampleCard.img}
+										alt={alt}
+										className="theme-preview-img"
+									/>
+								)}
+							</button>
+						);
+					})}
 				</div>
 			</div>
 
 			<div className="level-setup">
 				<h2>Level</h2>
-				<button
-					className={selectedLevel === 'easy' ? 'active' : ''}
-					onClick={() => setSelectedLevel('easy')}
-				>
-					Easy
-				</button>
-				<button
-					className={selectedLevel === 'medium' ? 'active' : ''}
-					onClick={() => setSelectedLevel('medium')}
-				>
-					Medium
-				</button>
-				<button
-					className={selectedLevel === 'hard' ? 'active' : ''}
-					onClick={() => setSelectedLevel('hard')}
-				>
-					Hard
-				</button>
+				{levels.map((lvl) => (
+					<button
+						key={lvl}
+						className={selectedLevel === lvl ? 'active' : ''}
+						onClick={() => setSelectedLevel(lvl)}
+					>
+						{lvl.charAt(0).toUpperCase() + lvl.slice(1)}
+					</button>
+				))}
 			</div>
 
 			<button
