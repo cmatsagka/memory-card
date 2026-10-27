@@ -1,39 +1,58 @@
 # 🪐 Kids' Memory Card Game (React)
 
-A fun, child-friendly memory card game built with React. Designed as a hands-on learning project to master component architecture, state management, props, and data flow.
+A child-friendly memory card game built with React, featuring a chunky "sticker" aesthetic, dynamic layout management, interactive themes, and persistent high scores.
+
+![Memory Card Game Preview Image](src/assets/game_preview.png)
 
 ---
 
-## 🎮 Game Features & Rules
+## 🎮 Game Features & Aesthetics
 
 - **Themes:** Powered by DiceBear avatars (`planets` and `clay`).
-- **Difficulty Levels:**
-    - **Easy:** 6 cards
-    - **Hard:** 8 cards
-- **No Harsh Game Overs:** Clicking a duplicate card triggers an "Oops!" reset on your current score, but your **Best Score** and collected stickers are safely preserved.
-- **Sticker Gallery:** Complete rounds to unlock and view your badge collection.
+- **Difficulty Levels:** Choose between **Easy**, **Medium**, and **Hard** game modes.
+- **Score Tracking & Persistence:** Live score updates displayed in the top header badge, backed by `localStorage` persistence for your **High Score**.
+- **Collection Gallery:** Win or lose, view your complete set of collected stickers laid out in a card board summary.
 
 ---
 
-## Architecture Blueprint
+## 💡 Technical Highlights
 
-### 1. Central State (Managed in `App.jsx`)
+- **CSS-Only Sticker Rotations:** Uses structural pseudo-classes (`:nth-child(4n + 1)`, etc.) and CSS transforms to give the collected item gallery a scattered, organic sticker-book look without external libraries.
+- **Dynamic CSS Clamp Layouts:** Fluid typography, spacing, and image scaling driven entirely by `clamp()` to ensure seamless scaling from mobile to desktop.
+- **Centralized State Machine:** Manages game transitions (`SETUP`, `PLAYING`, `WIN`, `GAME_OVER`) cleanly inside `App.jsx` with persistent high-score tracking via a lightweight `localStorage` utility.
 
-- `theme` (`'planets'` | `'clay'`)
-- `difficulty` (6 cards [Easy] | 8 cards [Hard])
-- `currentScore` & `bestScore`
-- `clickedCards` (Array tracking clicked cards per round)
-- `gameStatus` (`'setup'` | `'playing'` | `'gameover'`)
+---
 
-### 2. Component Tree & Hierarchy
+## 🛠️ Getting Started
 
-```text
-App
-├── SetupScreen (Theme Selector, Difficulty Selector)
-├── PlayingScreen
-│    ├── ScoreSection (Current Score, Best Score)
-│    └── CardsSection (Maps and renders individual Card components)
-└── GameOverScreen
-     ├── AnnouncementSection (Result message + Sticker Collection Gallery)
-     └── ButtonsSection (Play Again, Change Settings)
+### 1. Clone the repository:
+
+```Bash
+git clone [https://github.com/your-username/memory-card-game.git](https://github.com/your-username/memory-card-game.git)
 ```
+
+### 2. Open project directory:
+
+```bash
+cd memory-card-game
+```
+
+### 3.Install dependencies:
+
+```Bash
+npm install
+```
+
+### 4. Start the development server:
+
+```Bash
+npm run dev
+```
+
+---
+
+## 📜 Credits & License
+
+- Avatars: Generated using DiceBear.
+
+- Clay Theme: Clay by DiceBear, licensed under CC0 1.0.
